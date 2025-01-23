@@ -1,0 +1,21 @@
+button {
+    margin-bottom: 10px;
+    border-radius: 50px !important;
+    border: 5px solid white;
+    transition: border 0.2s ease;
+}
+
+button:hover{
+    border: 5px solid #81D9FF;
+    cursor: pointer;
+    background-color: #81D9FF;
+}
+
+#warning {
+    color: red;
+}
+
+ul{
+    list-style-type: none;
+}
+
