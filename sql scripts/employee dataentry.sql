@@ -18,7 +18,7 @@ VALUE
     ,'Donald'
     ,'Duck'
     ,'13 Quack St.'
-    ,1236545660789 -- salt char(3) + 65 + char(3) + 60 + char(3)
+    ,AES_ENCRYPT('123456789','6560')
     ,6155551234
     ,1
     ,NULL

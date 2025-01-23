@@ -3,16 +3,18 @@ USE Payroll;
 
 INSERT INTO EmpLogin
 (
-    EmpLoginID
+    LoginID
     ,EmployeeID
     ,username
     ,password
+    ,CompositeHash
 )
 VALUE
 (
     Default
-    ,0
-    ,''
-    ,''
+    ,4
+    ,'admin'
+    ,'password'
     ,SHA2(CONCAT(username, password), 256)
 );
+

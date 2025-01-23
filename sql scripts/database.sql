@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Employee (
     FirstName varchar(50) not null,
     LastName varchar(50) not null,
     Address varchar(255),
-    ssn char(13),
+    ssn varchar(256),
     PhoneNumber char(10),
     RoleID int not null,
     ManagerEmpID int 	-- used to track who an employees manager is
@@ -59,5 +59,5 @@ ALTER TABLE EmpLogin ADD CONSTRAINT FOREIGN KEY (EmployeeID)  REFERENCES Employe
 ALTER TABLE Employee ADD CONSTRAINT FOREIGN KEY (ManagerEmpID)  REFERENCES Employee(EmployeeID);
 
 -- Add a column that will be the hash of 2 existing columns
-ALTER TABLE EmpLogin ADD COLUMN CompositeHash varchar(32) GENERATED ALWAYS AS (SHA2(CONCAT(username, password), 256));
+ALTER TABLE EmpLogin ADD COLUMN CompositeHash varchar(256) GENERATED ALWAYS AS (SHA2(CONCAT(username, password), 256));
 
