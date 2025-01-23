@@ -1,26 +1,32 @@
 INSERT INTO Role
 (
-    RoleName
+    RoleID
+    ,RoleName
 )
 VALUE
 (
+    1,
     'Employee'
 );
 
 INSERT INTO Role
 (
-    RoleName
+    RoleID
+    ,RoleName
 )
 VALUE
 (
+    2,
     'Manager'
 );
 
 INSERT INTO Role
 (
-    RoleName
+    RoleID
+    ,RoleName
 )
 VALUE
 (
+    3,
     'HR'
 );
