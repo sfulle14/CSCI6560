@@ -1,0 +1,20 @@
+INSERT INTO Employee
+(
+    FirstName
+    ,LastName
+    ,Address
+    ,ssn
+    ,PhoneNumber
+    ,RoleID
+    ,ManagerEmpID
+)
+VALUE
+(
+    ''
+    ,''
+    ,''
+    ,000000000
+    ,0000000000
+    ,1
+    ,NULL
+);
