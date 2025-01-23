@@ -1,11 +1,16 @@
+-- Tell the program which database to use to ensure to correct one is being worked on
+USE Payroll;
+
 INSERT INTO PaymentHistory
 (
-    EmployeeID
+    PaymentHistoryID
+    ,EmployeeID
     ,Date
 )
 VALUE
 (
-    1
+    Default
+    ,1
     ,01/01/1900
 );
 

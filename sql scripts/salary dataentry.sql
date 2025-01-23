@@ -1,10 +1,15 @@
+-- Tell the program which database to use to ensure to correct one is being worked on
+USE Payroll;
+
 INSERT INTO Salary
 (
-    EmployeeID
+    SalaryID
+    ,EmployeeID
     ,Salary
 )
 VALUE
 (
-    1
+    Default
+    ,1
     ,1
 );

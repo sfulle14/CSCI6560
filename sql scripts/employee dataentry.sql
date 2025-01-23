@@ -1,6 +1,10 @@
+-- Tell the program which database to use to ensure to correct one is being worked on
+USE Payroll;
+
 INSERT INTO Employee
 (
-    FirstName
+    EmployeeID
+    ,FirstName
     ,LastName
     ,Address
     ,ssn
@@ -10,11 +14,12 @@ INSERT INTO Employee
 )
 VALUE
 (
-    ''
-    ,''
-    ,''
-    ,000000000
-    ,0000000000
+    Default
+    ,'Donald'
+    ,'Duck'
+    ,'13 Quack St.'
+    ,1236545660789 -- salt char(3) + 65 + char(3) + 60 + char(3)
+    ,6155551234
     ,1
     ,NULL
 );
