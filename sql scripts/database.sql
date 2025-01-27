@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Employee (
     FirstName varchar(50) not null,
     LastName varchar(50) not null,
     Address varchar(255),
-    ssn varbinary(200),
+    ssn varbinary(255),
     PhoneNumber char(10),
     RoleID int not null,
     ManagerEmpID int 	-- used to track who an employees manager is
