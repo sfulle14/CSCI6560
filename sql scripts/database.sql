@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Employee (
     FirstName varchar(50) not null,
     LastName varchar(50) not null,
     Address varchar(255),
-    ssn varchar(256),
+    ssn varbinary(200),
     PhoneNumber char(10),
     RoleID int not null,
     ManagerEmpID int 	-- used to track who an employees manager is
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS EmpLogin (
 	loginID int PRIMARY KEY AUTO_INCREMENT,
     EmployeeID int not null,
     username varchar(20) not null UNIQUE,
-    password varbinary(200)
+    password varchar(32)
 );
 
 -- Create the table if it does not alread exist
