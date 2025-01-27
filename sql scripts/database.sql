@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS EmpLogin (
 	loginID int PRIMARY KEY AUTO_INCREMENT,
     EmployeeID int not null,
     username varchar(20) not null UNIQUE,
-    password varchar(32)
+    password varbinary(200)
 );
 
 -- Create the table if it does not alread exist
