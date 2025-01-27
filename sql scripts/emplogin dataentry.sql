@@ -7,14 +7,11 @@ INSERT INTO EmpLogin
     ,EmployeeID
     ,username
     ,password
-    ,CompositeHash
 )
 VALUE
 (
     Default
-    ,4
+    ,1
     ,'admin'
     ,'password'
-    ,SHA2(CONCAT(username, password), 256)
 );
-
