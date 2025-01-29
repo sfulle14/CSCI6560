@@ -13,6 +13,8 @@ INSERT INTO Employee
     ,PhoneNumber
     ,RoleID
     ,ManagerEmpID
+    ,CreatedAt
+    ,UpdatedAt
 )
 VALUES
 (
@@ -24,4 +26,6 @@ VALUES
     ,'6155551234'
     ,1
     ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
 );

@@ -7,6 +7,11 @@ INSERT INTO EmpLogin
     ,EmployeeID
     ,username
     ,password
+    ,salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
 )
 VALUE
 (
@@ -14,4 +19,9 @@ VALUE
     ,1
     ,'admin'
     ,'password'
+    ,''
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
 );

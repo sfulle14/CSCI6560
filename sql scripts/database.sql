@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS EmpLogin (
     EmployeeID int not null,
     Username varchar(50) not null UNIQUE,
     PasswordHash varchar(64) not null,  -- For SHA-256 hashed passwords
-    Salt varchar(32) not null,
+    Salt varchar(32) not null,  -- used to salt the password for each user
     FailedLoginAttempts int DEFAULT 0,
     LastFailedLogin TIMESTAMP,
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -72,14 +72,16 @@ CREATE TABLE IF NOT EXISTS Salary (
     EffectiveDate TIMESTAMP not null,
     EndDate TIMESTAMP,
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CreatedBy int not null,  -- EmployeeID who created this record
+    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     INDEX idx_salary_employee (EmployeeID),
     INDEX idx_salary_dates (EffectiveDate, EndDate)
 );
 
 -- Audit table to track changes in the database
+-- We will not have data entry scripts here 
+-- this is a table to track changes made by users
 CREATE TABLE IF NOT EXISTS AuditLog (
     AuditID int PRIMARY KEY AUTO_INCREMENT,
     EmployeeID int not null,  -- Who performed the action
@@ -96,7 +98,8 @@ CREATE TABLE IF NOT EXISTS AuditLog (
 );
 
 -- Session tracking table for additional security
--- view login and logout times
+-- We will not have data entry scripts here 
+-- this is a table to track logins
 CREATE TABLE IF NOT EXISTS UserSessions (
     SessionID varchar(64) PRIMARY KEY,
     EmployeeID int not null,

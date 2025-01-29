@@ -5,12 +5,16 @@ INSERT INTO PaymentHistory
 (
     PaymentHistoryID
     ,EmployeeID
-    ,Date
+    ,PaymentDate
+    ,Amount
+    ,CreatedAt
 )
 VALUE
 (
     Default
     ,1
     ,01/01/1900
+    ,100.00
+    ,CURRENT_TIMESTAMP
 );
 
