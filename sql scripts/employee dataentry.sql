@@ -1,6 +1,8 @@
 -- Tell the program which database to use to ensure to correct one is being worked on
 USE Payroll;
 
+SET @SecurityKey = '6560';
+
 INSERT INTO Employee
 (
     EmployeeID
@@ -12,14 +14,14 @@ INSERT INTO Employee
     ,RoleID
     ,ManagerEmpID
 )
-VALUE
+VALUES
 (
     Default
     ,'Donald'
     ,'Duck'
     ,'13 Quack St.'
-    ,AES_ENCRYPT('123456789','6560')
-    ,6155551234
+    ,AES_ENCRYPT('123456789',@SecurityKey)
+    ,'6155551234'
     ,1
     ,NULL
 );
