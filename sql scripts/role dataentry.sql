@@ -6,42 +6,67 @@ INSERT IGNORE INTO Role
 (
     RoleID
     ,RoleName
+    ,Description
+    ,CreatedAt
+    ,UpdatedAt
 )
 VALUE
 (
-    1,
-    'Employee'
+    1
+    ,'Employee'
+    ,''
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
 );
 
 INSERT IGNORE INTO Role
 (
     RoleID
     ,RoleName
+    ,Description
+    ,CreatedAt
+    ,UpdatedAtRoleID
+    ,RoleName
 )
 VALUE
 (
-    2,
-    'Manager'
+    2
+    ,'Manager'
+    ,''
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
 );
 
 INSERT IGNORE INTO Role
 (
     RoleID
     ,RoleName
+    ,Description
+    ,CreatedAt
+    ,UpdatedAt
 )
 VALUE
 (
-    3,
-    'HR'
+    3
+    ,'HR'
+    ,''
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
 );
 
 INSERT IGNORE INTO Role
 (
     RoleID
     ,RoleName
+    ,Description
+    ,CreatedAt
+    ,UpdatedAt
 )
 VALUE
 (
     4
     ,'Admin'
+    ,''
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
 );

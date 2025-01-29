@@ -178,9 +178,9 @@ BEGIN
     FROM Employee 
     WHERE EmployeeID = p_requester_id;
     
-    -- Only allow HR role (assuming RoleID 2 is HR) to access SSN
+    -- Only allow HR role (assuming RoleID 3 is HR) to access SSN
     -- This is how we limit who can access data by role in the DB
-    IF v_requester_role = 2 THEN
+    IF v_requester_role = 3 THEN
         SELECT ssn INTO p_ssn
         FROM Employee
         WHERE EmployeeID = p_target_employee_id;
