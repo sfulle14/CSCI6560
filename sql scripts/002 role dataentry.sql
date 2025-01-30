@@ -25,8 +25,7 @@ INSERT IGNORE INTO Role
     ,RoleName
     ,Description
     ,CreatedAt
-    ,UpdatedAtRoleID
-    ,RoleName
+    ,UpdatedAt
 )
 VALUE
 (
