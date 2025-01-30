@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS Role (
 	RoleID int PRIMARY KEY AUTO_INCREMENT,
     RoleName varchar(50) NOT NULL,
     Description varchar(255),
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    CreatedAt datetime DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
 -- Create the table if it does not already exist
@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS Employee (
     PhoneNumber char(10),
     RoleID int not null,
     ManagerEmpID int,    -- used to track who an employees manager i
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CreatedAt datetime DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     INDEX idx_employee_role (RoleID),
     INDEX idx_employee_manager (ManagerEmpID)
@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS EmpLogin (
     PasswordHash varchar(64) not null,  -- For SHA-256 hashed passwords
     Salt varchar(32) not null,  -- used to salt the password for each user
     FailedLoginAttempts int DEFAULT 0,
-    LastFailedLogin TIMESTAMP,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    LastFailedLogin datetime,
+    CreatedAt datetime DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CompositeHash varchar(256) GENERATED ALWAYS AS (SHA2(CONCAT(Username, PasswordHash, Salt), 256)) STORED,
 
     INDEX idx_login_employee (EmployeeID),
@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS EmpLogin (
 CREATE TABLE IF NOT EXISTS PaymentHistory (
 	PaymentHistoryID int PRIMARY KEY AUTO_INCREMENT,
     EmployeeID int not null,
-    PaymentDate TIMESTAMP not null,
+    PaymentDate datetime not null,
     Amount DECIMAL(10,2) not null,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CreatedAt datetime DEFAULT CURRENT_TIMESTAMP,
 
     INDEX idx_payment_employee (EmployeeID),
     INDEX idx_payment_date (PaymentDate)
@@ -69,11 +69,11 @@ CREATE TABLE IF NOT EXISTS Salary (
 	SalaryID int PRIMARY KEY AUTO_INCREMENT,
     EmployeeID int not null,
     Salary DECIMAL(10,2) not null,
-    EffectiveDate TIMESTAMP not null,
-    EndDate TIMESTAMP,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    EffectiveDate datetime not null,
+    EndDate datetime,
+    CreatedAt datetime DEFAULT CURRENT_TIMESTAMP,
     CreatedBy int not null,  -- EmployeeID who created this record
-    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UpdatedAt datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
     INDEX idx_salary_employee (EmployeeID),
     INDEX idx_salary_dates (EffectiveDate, EndDate)
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS AuditLog (
     SourceTableID int not null,
     OldValue JSON,  -- Store old values in JSON format
     NewValue JSON,  -- Store new values in JSON format
-    Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Timestamp datetime DEFAULT CURRENT_TIMESTAMP,
 
     INDEX idx_audit_employee (EmployeeID),
     INDEX idx_audit_action (ActionType),
@@ -103,9 +103,9 @@ CREATE TABLE IF NOT EXISTS AuditLog (
 CREATE TABLE IF NOT EXISTS UserSessions (
     SessionID varchar(64) PRIMARY KEY,
     EmployeeID int not null,
-    LoginTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    LastActivityTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ExpiryTime TIMESTAMP not null,
+    LoginTime datetime DEFAULT CURRENT_TIMESTAMP,
+    LastActivityTime datetime DEFAULT CURRENT_TIMESTAMP,
+    ExpiryTime datetime not null,
     IPAddress varchar(45),
     UserAgent varchar(255),
     IsActive BOOLEAN DEFAULT true,
@@ -235,7 +235,7 @@ CREATE PROCEDURE sp_update_password(
     IN p_new_salt VARCHAR(32)   -- value to salt password with
 )
 BEGIN
-    DECLARE v_last_change TIMESTAMP;    -- variable to hold last password change date
+    DECLARE v_last_change datetime;    -- variable to hold last password change date
     
     -- Get last password change date and store it in v_last_change
     SELECT LastPasswordChange INTO v_last_change

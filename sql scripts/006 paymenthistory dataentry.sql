@@ -13,7 +13,7 @@ VALUE
 (
     Default
     ,1
-    ,01/01/1900
+    ,"1900-01-01 09:00:00"
     ,100.00
     ,CURRENT_TIMESTAMP
 );

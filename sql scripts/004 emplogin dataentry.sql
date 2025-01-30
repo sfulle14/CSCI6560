@@ -6,8 +6,8 @@ INSERT INTO EmpLogin
     LoginID
     ,EmployeeID
     ,username
-    ,password
-    ,salt
+    ,PasswordHash
+    ,Salt
     ,FailedLoginAttempts
     ,LastFailedLogin
     ,CreatedAt
