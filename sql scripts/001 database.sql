@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS EmpLogin (
 	LoginID int PRIMARY KEY AUTO_INCREMENT,
     EmployeeID int not null,
     Username varchar(50) not null UNIQUE,
-    PasswordHash varchar(64) not null,  -- For SHA-256 hashed passwords
+    PasswordHash varchar(64) not null,  -- For SHA-256 hashed passwords these would need to be inserted hashed
     Salt varchar(32) not null,  -- used to salt the password for each user
     FailedLoginAttempts int DEFAULT 0,
     LastFailedLogin datetime,
@@ -214,7 +214,7 @@ BEGIN
     
     -- Only allow HR role (assuming RoleID 2 is HR) to access SSN
     -- This is how we limit who can access data by role in the DB
-    IF v_requester_role = 2 THEN
+    IF v_requester_role = 3 THEN
         SELECT salary INTO p_salary
         FROM Employee
         WHERE EmployeeID = p_target_employee_id;
@@ -300,3 +300,13 @@ END //
 
 DELIMITER ;
 
+DELIMITER //
+-- Triggers for hashing
+CREATE TRIGGER insertPasswordHash
+BEFORE INSERT ON EmpLogin
+FOR EACH ROW 
+BEGIN
+    SET NEW.PasswordHash = SHA2(NEW.PasswordHash, 256);
+END //
+
+DELIMITER ;
