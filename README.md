@@ -17,3 +17,20 @@
 * https://www.w3schools.com/mysql/mysql_view.asp
 * https://dev.mysql.com/doc/refman/8.4/en/views.html
 
+
+### How to execute the shell script to run all SQL files in "sql scripts" folder
+* make sure mysql is installed
+* to install: 
+    * For linux
+        * sudo apt-get update
+        * sudo apt-get install mysql-client
+    * For Mac
+        * brew install mysql
+* Ensure file has execute ability
+    * chmod +x run_sql_scripts.sh
+* Navegate to folder the shell script is in
+* Run,
+    * for mac and linux,
+        * ./run_sql_scripts.sh
+    * For window,
+        * bash run_sql_scripts.sh
