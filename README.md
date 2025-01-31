@@ -27,10 +27,13 @@
     * For Mac
         * brew install mysql
 * Ensure file has execute ability
-    * chmod +x run_sql_scripts.sh
+    * for mac,
+        * chmod +x run_sql_scripts.sh
+    * for windows,
+        * chmod +x run_sql_scripts.ps1
 * Navegate to folder the shell script is in
 * Run,
     * for mac and linux,
         * ./run_sql_scripts.sh
     * For window,
-        * bash run_sql_scripts.sh
+        * ./run_sql_scripts.ps1
