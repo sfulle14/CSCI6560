@@ -13,13 +13,238 @@ INSERT INTO EmpLogin
     ,CreatedAt
     ,UpdatedAt
 )
-VALUE
+VALUES
 (
     Default
     ,1
-    ,'admin'
-    ,'password'
-    ,''
+    ,'dduck'
+    ,'password123'
+    ,'salt1'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,2
+    ,'mmouse'
+    ,'password123'
+    ,'salt2'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,3
+    ,'minnie'
+    ,'password123'
+    ,'salt3'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,4
+    ,'goofy'
+    ,'password123'
+    ,'salt4'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,5
+    ,'daisy'
+    ,'password123'
+    ,'salt5'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,6
+    ,'pete'
+    ,'password123'
+    ,'salt6'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,7
+    ,'pluto'
+    ,'password123'
+    ,'salt7'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,8
+    ,'clarabelle'
+    ,'password123'
+    ,'salt8'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,9
+    ,'horace'
+    ,'password123'
+    ,'salt9'
+    ,0
+    ,NULL
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+INSERT INTO EmpLogin
+(
+    LoginID
+    ,EmployeeID
+    ,username
+    ,PasswordHash
+    ,Salt
+    ,FailedLoginAttempts
+    ,LastFailedLogin
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,10
+    ,'maxgoof'
+    ,'password123'
+    ,'salt10'
     ,0
     ,NULL
     ,CURRENT_TIMESTAMP
