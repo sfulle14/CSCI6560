@@ -1,7 +1,8 @@
 # MySQL connection details
 $MYSQL_USER = "root"
-$MYSQL_PASSWORD = "password"
+$MYSQL_PASSWORD = "your_password_here"  # The password you set during installation
 $MYSQL_HOST = "localhost"
+$MYSQL_DATABASE = "your_database_name"  # The name of your database
 
 # Directory containing SQL scripts
 $SQL_SCRIPTS_DIR = "sql scripts"
@@ -21,7 +22,7 @@ foreach ($script in $scripts) {
     Write-Host "Executing $scriptPath..."
     
     try {
-        mysql -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASSWORD < $scriptPath
+        & "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysql.exe" -h $MYSQL_HOST -u $MYSQL_USER --password=$MYSQL_PASSWORD $MYSQL_DATABASE -e "source $scriptPath"
         if ($LASTEXITCODE -eq 0) {
             Write-Host "Successfully executed $scriptPath"
         } else {
