@@ -3,6 +3,7 @@ USE Payroll;
 
 SET @SecurityKey = '6560';
 
+-- admin
 INSERT INTO Employee
 (
     EmployeeID
@@ -30,6 +31,7 @@ VALUES
     ,CURRENT_TIMESTAMP
 );
 
+-- manager
 INSERT INTO Employee
 (
     EmployeeID
@@ -52,11 +54,13 @@ VALUES
     ,AES_ENCRYPT('987654321',@SecurityKey)
     ,'6155552345'
     ,2
-    ,1
+    ,NULL
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
 );
 
+
+-- manager
 INSERT INTO Employee
 (
     EmployeeID
@@ -73,17 +77,18 @@ INSERT INTO Employee
 VALUES
 (
     Default
-    ,'Minnie'
-    ,'Mouse'
-    ,'42 Disney Lane'
-    ,AES_ENCRYPT('456789123',@SecurityKey)
-    ,'6155553456'
-    ,3
-    ,1
+    ,'Horace'
+    ,'Horsecollar'
+    ,'456 Stable Street'
+    ,AES_ENCRYPT('741852963',@SecurityKey)
+    ,'6155559012'
+    ,2
+    ,NULL
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
 );
 
+-- manager
 INSERT INTO Employee
 (
     EmployeeID
@@ -106,38 +111,12 @@ VALUES
     ,AES_ENCRYPT('789123456',@SecurityKey)
     ,'6155554567'
     ,2
-    ,1
+    ,NULL
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
 );
 
-INSERT INTO Employee
-(
-    EmployeeID
-    ,FirstName
-    ,LastName
-    ,Address
-    ,ssn
-    ,PhoneNumber
-    ,RoleID
-    ,ManagerEmpID
-    ,CreatedAt
-    ,UpdatedAt
-)
-VALUES
-(
-    Default
-    ,'Daisy'
-    ,'Duck'
-    ,'14 Quack St.'
-    ,AES_ENCRYPT('321654987',@SecurityKey)
-    ,'6155555678'
-    ,3
-    ,1
-    ,CURRENT_TIMESTAMP
-    ,CURRENT_TIMESTAMP
-);
-
+-- hr
 INSERT INTO Employee
 (
     EmployeeID
@@ -159,12 +138,70 @@ VALUES
     ,'666 Trouble Way'
     ,AES_ENCRYPT('147258369',@SecurityKey)
     ,'6155556789'
-    ,2
+    ,3
     ,2
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
 );
 
+-- hr
+INSERT INTO Employee
+(
+    EmployeeID
+    ,FirstName
+    ,LastName
+    ,Address
+    ,ssn
+    ,PhoneNumber
+    ,RoleID
+    ,ManagerEmpID
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,'Minnie'
+    ,'Mouse'
+    ,'42 Disney Lane'
+    ,AES_ENCRYPT('456789123',@SecurityKey)
+    ,'6155553456'
+    ,3
+    ,2
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+-- employee
+INSERT INTO Employee
+(
+    EmployeeID
+    ,FirstName
+    ,LastName
+    ,Address
+    ,ssn
+    ,PhoneNumber
+    ,RoleID
+    ,ManagerEmpID
+    ,CreatedAt
+    ,UpdatedAt
+)
+VALUES
+(
+    Default
+    ,'Daisy'
+    ,'Duck'
+    ,'14 Quack St.'
+    ,AES_ENCRYPT('321654987',@SecurityKey)
+    ,'6155555678'
+    ,4
+    ,3
+    ,CURRENT_TIMESTAMP
+    ,CURRENT_TIMESTAMP
+);
+
+
+-- employee
 INSERT INTO Employee
 (
     EmployeeID
@@ -192,6 +229,7 @@ VALUES
     ,CURRENT_TIMESTAMP
 );
 
+-- employee
 INSERT INTO Employee
 (
     EmployeeID
@@ -213,39 +251,13 @@ VALUES
     ,'789 Farmyard Road'
     ,AES_ENCRYPT('852963741',@SecurityKey)
     ,'6155558901'
-    ,3
-    ,2
-    ,CURRENT_TIMESTAMP
-    ,CURRENT_TIMESTAMP
-);
-
-INSERT INTO Employee
-(
-    EmployeeID
-    ,FirstName
-    ,LastName
-    ,Address
-    ,ssn
-    ,PhoneNumber
-    ,RoleID
-    ,ManagerEmpID
-    ,CreatedAt
-    ,UpdatedAt
-)
-VALUES
-(
-    Default
-    ,'Horace'
-    ,'Horsecollar'
-    ,'456 Stable Street'
-    ,AES_ENCRYPT('741852963',@SecurityKey)
-    ,'6155559012'
-    ,2
+    ,4
     ,3
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
 );
 
+-- employee
 INSERT INTO Employee
 (
     EmployeeID
@@ -267,8 +279,8 @@ VALUES
     ,'123 Goof Troop Ave'
     ,AES_ENCRYPT('369147258',@SecurityKey)
     ,'6155550123'
-    ,1
-    ,3
+    ,4
+    ,4
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
 );
