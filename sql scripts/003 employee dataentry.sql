@@ -186,7 +186,7 @@ VALUES
     ,'42 Disney Lane'
     ,AES_ENCRYPT('963852741',@SecurityKey)
     ,'6155557890'
-    ,1
+    ,4
     ,2
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
