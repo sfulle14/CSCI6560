@@ -13,7 +13,7 @@ INSERT IGNORE INTO Role
 VALUE
 (
     1
-    ,'Employee'
+    ,'Admin'
     ,''
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
@@ -64,7 +64,7 @@ INSERT IGNORE INTO Role
 VALUE
 (
     4
-    ,'Admin'
+    ,'Employee'
     ,''
     ,CURRENT_TIMESTAMP
     ,CURRENT_TIMESTAMP
