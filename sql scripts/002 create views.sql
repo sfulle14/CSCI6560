@@ -11,6 +11,7 @@ SELECT
     r.RoleName
 FROM Employee e
 JOIN Role r ON e.RoleID = r.RoleID;
+WHERE 1=1;
 
 
 -- Create view for HR personnel (includes sensitive data)
@@ -23,4 +24,16 @@ SELECT
 FROM Employee e
 JOIN Role r ON e.RoleID = r.RoleID
 LEFT JOIN Salary s ON e.EmployeeID = s.EmployeeID
-WHERE s.EndDate IS NULL;
+WHERE 1=1
+and s.EndDate IS NULL;
+
+
+-- Create a view that will display the salary of all employees
+CREATE OR REPLACE VIEW vw_salary_hr AS
+SELECT
+    e.FirstName
+    ,e.LastName
+    ,s.*
+FROM Salary s
+INNER JOIN Employee e on e.employeeID = s.employeeID
+WHERE 1=1;
