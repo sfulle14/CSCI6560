@@ -24,10 +24,10 @@
     * For linux
         * sudo apt-get update
         * sudo apt-get install mysql-client
-    * For Mac
+    * For Mac and WIndows
         * brew install mysql
 * Ensure file has execute ability
-    * for mac,
+    * for mac and linux,
         * chmod +x run_sql_scripts.sh
     * for windows,
         * chmod +x run_sql_scripts.ps1
