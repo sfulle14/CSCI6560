@@ -50,3 +50,38 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+-- Create a trigger that will add user database restrictions 
+CREATE TRIGGER addUserRestrictions
+AFTER INSERT ON EmpLogin
+FOR EACH ROW
+BEGIN 
+    IF employee.RoleID = 1 THEN
+        DECLARE @username varchar(50)
+        SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
+        CREATE USER IF NOT EXISTS @username@'localhost'
+        GRANT Payroll.* to @username@localhost WITH GRANT OPTION;
+    
+    IF employee.RoleID = 2 THEN
+        DECLARE @username varchar(50)
+        SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
+        CREATE USER IF NOT EXISTS @username@'localhost'
+        GRANT Payroll. to @username@localhost WITH GRANT OPTION;
+    
+    IF employee.RoleID = 3 THEN
+        DECLARE @username varchar(50)
+        SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
+        CREATE USER IF NOT EXISTS @username@'localhost'
+
+    IF employee.RoleID = 4 THEN
+        DECLARE @username varchar(50)
+        SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
+        CREATE USER IF NOT EXISTS @username@'localhost'
+
+
+    END IF
+
+
+
+DELIMITER ;
