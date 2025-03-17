@@ -57,28 +57,41 @@ CREATE TRIGGER addUserRestrictions
 AFTER INSERT ON EmpLogin
 FOR EACH ROW
 BEGIN 
+    -- Admin
     IF employee.RoleID = 1 THEN
         DECLARE @username varchar(50)
         SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
         CREATE USER IF NOT EXISTS @username@'localhost'
         GRANT Payroll.* to @username@localhost WITH GRANT OPTION;
     
+    -- Manager
     IF employee.RoleID = 2 THEN
         DECLARE @username varchar(50)
         SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
         CREATE USER IF NOT EXISTS @username@'localhost'
-        GRANT Payroll. to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT ON Payroll.Employee to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT ON Payroll.PaymentHistory to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT ON Payroll.Salary to @username@localhost WITH GRANT OPTION;
     
+    -- HR
     IF employee.RoleID = 3 THEN
         DECLARE @username varchar(50)
         SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
         CREATE USER IF NOT EXISTS @username@'localhost'
+        GRANT SELECT, INSERT, UPDATE, DELETE ON Payroll.Role to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT, INSERT, UPDATE, DELETE ON Payroll.Employee to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT, INSERT, UPDATE, DELETE ON Payroll.EmpLogin to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT ON Payroll.PaymentHistory to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT, INSERT, UPDATE, DELETE ON Payroll.Salary to @username@localhost WITH GRANT OPTION;
 
+    -- Employee
     IF employee.RoleID = 4 THEN
         DECLARE @username varchar(50)
         SET @username = CAST((select top(1) username from Payroll.EmpLogin order by CreatedAt desc) AS varchar)
         CREATE USER IF NOT EXISTS @username@'localhost'
-
+        GRANT SELECT ON Payroll.Employee to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT ON Payroll.PaymentHistory to @username@localhost WITH GRANT OPTION;
+        GRANT SELECT ON Payroll.Salary to @username@localhost WITH GRANT OPTION;
 
     END IF
 
