@@ -94,7 +94,4 @@ BEGIN
         GRANT SELECT ON Payroll.Salary to @username@localhost WITH GRANT OPTION;
 
     END IF
-
-
-
 DELIMITER ;
