@@ -3,67 +3,71 @@ USE Payroll;
 
 DELIMITER //
 
+-- drop the functions if they exist
 DROP FUNCTION IF EXISTS caesar_encrypt//
 DROP FUNCTION IF EXISTS caesar_decrypt//
 
 CREATE FUNCTION caesar_encrypt(
-    input_text VARCHAR(255),
-    shift_amount INT
+    input_text VARCHAR(255), -- value to be encrypted
+    shift_amount INT -- amount to shift the character by
 )
 RETURNS VARCHAR(255)
 DETERMINISTIC
 BEGIN
-    DECLARE i INT DEFAULT 1;
-    DECLARE result VARCHAR(255) DEFAULT '';
-    DECLARE current_char CHAR;
-    DECLARE ascii_val INT;
+    DECLARE i INT DEFAULT 1; -- counter
+    DECLARE result VARCHAR(255) DEFAULT ''; -- variable to hold the encrypted value
+    DECLARE current_char CHAR; -- variable to hold the current character
+    DECLARE ascii_val INT; -- variable to hold the current character's ascii value
     
-    -- Convert shift to be within 0-25 range
+    -- convert shift to be within 0-25 range
     SET shift_amount = MOD(shift_amount + 26, 26);
     
+    -- loop to shift all the values
     WHILE i <= LENGTH(input_text) DO
         SET current_char = UPPER(SUBSTRING(input_text, i, 1));
         SET ascii_val = ASCII(current_char);
         
-        -- Only shift alphabetic characters
+        -- only shift alphabetic characters
         IF ascii_val >= 65 AND ascii_val <= 90 THEN
-            -- Apply shift and wrap around if necessary
+            -- apply shift and wrap around if necessary
             SET ascii_val = ascii_val + shift_amount;
             IF ascii_val > 90 THEN
                 SET ascii_val = ascii_val - 26;
             END IF;
             SET result = CONCAT(result, CHAR(ascii_val));
         ELSE
-            -- Keep non-alphabetic characters as is
+            -- keep non-alphabetic characters as is
             SET result = CONCAT(result, current_char);
         END IF;
         
-        SET i = i + 1;
+        SET i = i + 1; -- increment the counter
     END WHILE;
     
+    -- return the encrypted value
     RETURN result;
 END//
 
 CREATE FUNCTION caesar_decrypt(
-    input_text VARCHAR(255),
-    shift_amount INT
+    input_text VARCHAR(255), -- value to be encrypted
+    shift_amount INT -- amount to shift the character by
 )
 RETURNS VARCHAR(255)
 DETERMINISTIC
 BEGIN
-    DECLARE i INT DEFAULT 1;
-    DECLARE result VARCHAR(255) DEFAULT '';
-    DECLARE current_char CHAR;
-    DECLARE ascii_val INT;
+    DECLARE i INT DEFAULT 1; -- counter
+    DECLARE result VARCHAR(255) DEFAULT ''; -- variable to hold the encrypted value
+    DECLARE current_char CHAR; -- variable to hold the current character
+    DECLARE ascii_val INT; -- variable to hold the current character's ascii value
     
-    -- Convert shift to be within 0-25 range and negate it for decryption
+    -- convert shift to be within 0-25 range and negate it for decryption
     SET shift_amount = MOD((-shift_amount + 26), 26);
     
+    -- loop to shift all the values
     WHILE i <= LENGTH(input_text) DO
         SET current_char = UPPER(SUBSTRING(input_text, i, 1));
         SET ascii_val = ASCII(current_char);
         
-        -- Only shift alphabetic characters
+        -- only shift alphabetic characters
         IF ascii_val >= 65 AND ascii_val <= 90 THEN
             -- Apply shift and wrap around if necessary
             SET ascii_val = ascii_val + shift_amount;
@@ -72,13 +76,14 @@ BEGIN
             END IF;
             SET result = CONCAT(result, CHAR(ascii_val));
         ELSE
-            -- Keep non-alphabetic characters as is
+            -- keep non-alphabetic characters as is
             SET result = CONCAT(result, current_char);
         END IF;
         
-        SET i = i + 1;
+        SET i = i + 1; -- increment the counter
     END WHILE;
     
+    -- return the decrypted value
     RETURN result;
 END//
 
