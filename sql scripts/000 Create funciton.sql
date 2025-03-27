@@ -47,6 +47,7 @@ BEGIN
     RETURN result;
 END//
 
+-- Decryption algorithm to complement the encryption algorithm
 CREATE FUNCTION caesar_decrypt(
     input_text VARCHAR(255), -- value to be encrypted
     shift_amount INT -- amount to shift the character by

@@ -23,7 +23,7 @@ VALUES
     ,'Donald'
     ,'Duck'
     ,'13 Quack St.'
-    ,AES_ENCRYPT('123456789',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('123456789', 3), @SecurityKey)
     ,'6155551234'
     ,1
     ,NULL
@@ -51,7 +51,7 @@ VALUES
     ,'Mickey'
     ,'Mouse'
     ,'42 Disney Lane'
-    ,AES_ENCRYPT('987654321',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('987654321',3), @SecurityKey)
     ,'6155552345'
     ,2
     ,NULL
@@ -80,7 +80,7 @@ VALUES
     ,'Horace'
     ,'Horsecollar'
     ,'456 Stable Street'
-    ,AES_ENCRYPT('741852963',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('741852963',3), @SecurityKey)
     ,'6155559012'
     ,2
     ,NULL
@@ -108,7 +108,7 @@ VALUES
     ,'Goofy'
     ,'Goof'
     ,'123 Goof Troop Ave'
-    ,AES_ENCRYPT('789123456',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('789123456',3), @SecurityKey)
     ,'6155554567'
     ,2
     ,NULL
@@ -136,7 +136,7 @@ VALUES
     ,'Pete'
     ,'Cat'
     ,'666 Trouble Way'
-    ,AES_ENCRYPT('147258369',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('147258369',3), @SecurityKey)
     ,'6155556789'
     ,3
     ,2
@@ -164,7 +164,7 @@ VALUES
     ,'Minnie'
     ,'Mouse'
     ,'42 Disney Lane'
-    ,AES_ENCRYPT('456789123',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('456789123',3), @SecurityKey)
     ,'6155553456'
     ,3
     ,2
@@ -192,7 +192,7 @@ VALUES
     ,'Daisy'
     ,'Duck'
     ,'14 Quack St.'
-    ,AES_ENCRYPT('321654987',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('321654987',3), @SecurityKey)
     ,'6155555678'
     ,4
     ,3
@@ -221,7 +221,7 @@ VALUES
     ,'Pluto'
     ,'Dog'
     ,'42 Disney Lane'
-    ,AES_ENCRYPT('963852741',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('963852741',3), @SecurityKey)
     ,'6155557890'
     ,4
     ,2
@@ -249,7 +249,7 @@ VALUES
     ,'Clarabelle'
     ,'Cow'
     ,'789 Farmyard Road'
-    ,AES_ENCRYPT('852963741',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('852963741',3), @SecurityKey)
     ,'6155558901'
     ,4
     ,3
@@ -277,7 +277,7 @@ VALUES
     ,'Max'
     ,'Goof'
     ,'123 Goof Troop Ave'
-    ,AES_ENCRYPT('369147258',@SecurityKey)
+    ,AES_ENCRYPT(caesar_encrypt('369147258',3), @SecurityKey)
     ,'6155550123'
     ,4
     ,4
