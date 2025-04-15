@@ -13,7 +13,6 @@ SELECT
     r.RoleName
 FROM Employee e
 JOIN Role r ON e.RoleID = r.RoleID;
-WHERE 1=1;
 
 
 -- Create view for HR personnel (includes sensitive data)
