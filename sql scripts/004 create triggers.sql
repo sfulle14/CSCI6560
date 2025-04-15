@@ -1,3 +1,4 @@
+USE Payroll;
 
 -- Create triggers for additional security and auditing
 DELIMITER //
@@ -38,9 +39,8 @@ BEGIN
     END IF;
 END //
 
-DELIMITER ;
 
-DELIMITER //
+
 -- Triggers for hashing
 CREATE TRIGGER insertPasswordHash
 BEFORE INSERT ON EmpLogin
@@ -49,9 +49,9 @@ BEGIN
     SET NEW.PasswordHash = SHA2(NEW.PasswordHash, 256);
 END //
 
-DELIMITER ;
 
-DELIMITER //
+
+
 -- Create a trigger that will add user database restrictions 
 CREATE TRIGGER addUserRestrictions
 AFTER INSERT ON EmpLogin
@@ -93,5 +93,6 @@ BEGIN
         GRANT SELECT ON Payroll.PaymentHistory to @username@localhost WITH GRANT OPTION;
         GRANT SELECT ON Payroll.Salary to @username@localhost WITH GRANT OPTION;
 
-    END IF
+    END IF;
+END //
 DELIMITER ;

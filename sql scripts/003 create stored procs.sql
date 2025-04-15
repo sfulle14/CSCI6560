@@ -1,3 +1,5 @@
+-- Tell the program which database to use to ensure to correct one is being worked on
+USE Payroll;
 
 -- Create stored procedures for secure data access
 DELIMITER //

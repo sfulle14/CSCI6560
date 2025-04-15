@@ -1,3 +1,5 @@
+-- Tell the program which database to use to ensure to correct one is being worked on
+USE Payroll;
 
 -- Create views for role-based access control
 -- this is a view of the employee's information

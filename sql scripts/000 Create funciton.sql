@@ -1,3 +1,7 @@
+-- Create a database to use if one does not already exist
+CREATE DATABASE IF NOT EXISTS Payroll;
+
+
 -- Tell the program which database to use to ensure to correct one is being worked on
 USE Payroll;
 
